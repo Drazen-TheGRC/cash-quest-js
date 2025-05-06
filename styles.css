@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-weight: 500;
 }
 
 .unselectable {
@@ -15,7 +16,14 @@
   --dark-color: #161b32;
   --light-color: whitesmoke;
   --light-blue: #9fd8f7;
-  --btn-width: 100px;
+  --btn-width: 120px;
+  /* --card-width: 15vw; */
+  --card-width: 320px;
+}
+
+section {
+  width: 90%;
+  min-height: 10vw;
 }
 
 /* Default: mobile-first (phones) */
@@ -32,7 +40,7 @@ header {
 
   width: 90%;
   margin: auto;
-  padding: 1em 0;
+  padding: 2em 0;
 }
 
 nav {
@@ -46,7 +54,7 @@ nav {
   align-items: center;
 
   padding: 1em;
-  margin-bottom: 2em;
+  margin: 0 auto;
 
   background-color: var(--light-color);
 
@@ -65,7 +73,7 @@ nav {
 
 .btn {
   width: var(--btn-width);
-  padding: 0.75em;
+  padding: 1em;
 
   background-color: var(--dark-color);
   color: var(--light-color);
@@ -83,10 +91,12 @@ nav {
   width: var(--btn-width);
 }
 
-.lang-cyr {
+.lang-cyr,
+.lang-lat {
   width: 50%;
   margin: 0;
-
+}
+.lang-cyr {
   border-right: 0.25em solid var(--dark-color);
 
   border-top-right-radius: 0;
@@ -94,9 +104,6 @@ nav {
 }
 
 .lang-lat {
-  width: 50%;
-  margin: 0;
-
   border-left: 0.25em solid var(--dark-color);
 
   border-top-left-radius: 0;
@@ -104,13 +111,18 @@ nav {
 }
 
 .btn:hover {
-  background-color: var(--light-color);
+  /* background-color: var(--light-color);
   color: var(--dark-color);
-  border: 0.25em solid var(--dark-color);
+  border: 0.25em solid var(--dark-color); */
 }
 .btn-text {
-  transition: transform 0.1s ease;
+  display: inline-block; /* Required for transform to work */
   text-transform: uppercase;
+  transition: transform 0.1s ease;
+}
+.btn:hover .btn-text {
+  transform: scale(1.1);
+  font-weight: bold;
 }
 
 .btn-active {
@@ -119,7 +131,7 @@ nav {
   border: 0.25em solid var(--dark-color);
 }
 
-main {
+.main {
   position: relative;
   width: 90%;
 
@@ -127,12 +139,69 @@ main {
   flex-direction: column;
   align-items: center;
 
-  margin: 4em auto;
+  margin: auto;
   padding: 1em;
 
   border: 0.25em solid var(--dark-color);
   background-color: var(--light-blue);
 }
+
+.scroll-wrapper {
+  position: relative;
+  width: 90%;
+
+  display: flex;
+
+  margin: auto;
+  margin-top: -0.25em; /* Canceling the double border */
+
+  padding: 1em;
+
+  border: 0.25em solid var(--dark-color);
+  background-color: var(--light-color);
+
+  overflow: hidden;
+  /* width: calc(11 * 5vw + 10 * 1vw);  */
+}
+
+.scroll-content {
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 1vw;
+}
+
+.tile {
+  width: 7vw;
+  height: 7vw;
+  background-color: #161b32;
+  color: white;
+  font-size: 4vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5vw;
+  flex-shrink: 0;
+}
+
+.tile.star {
+  background-color: var(--light-color);
+  color: #161b32;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .heading-primary {
   position: absolute;
   top: 0;
@@ -176,8 +245,8 @@ p {
   justify-content: center; /* Centers content horizontally */
   align-items: center; /* Centers content vertically */
   margin-top: 3em;
-  width: 320px;
-  height: 460px;
+  width: var(--card-width);
+  aspect-ratio: 16/23;
 
   cursor: pointer;
 }
@@ -186,8 +255,8 @@ p {
   position: absolute;
 
   top: 0;
-  width: 320px;
-  height: 460px;
+  width: var(--card-width);
+  aspect-ratio: 16/23;
 
   background-color: #83cae4;
   border: 0.75em solid #83cae4;
@@ -256,11 +325,16 @@ p {
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
 }
+.logo-card {
+  width: 50%;
+  margin-bottom: 1em;
+}
 
 /* Tablets and small laptops */
 @media (min-width: 768px) {
   :root {
     --btn-width: 160px;
+    --card-width: 320px;
   }
   body {
     font-size: 1.25rem;
@@ -281,18 +355,25 @@ p {
     transform: none;
     left: auto;
     bottom: auto;
-    margin: 0 3em;
+    margin: 0 auto;
     padding: 0.5em 1em;
 
     width: fit-content;
   }
 
-  main {
+  .main {
+    margin: auto;
     margin-top: 5em;
   }
 
   .btn {
     font-size: 1rem;
+  }
+  .scroll-wrapper {
+    padding: 2em;
+  }
+
+  .heading-secondary {
   }
 }
 

@@ -1,6 +1,18 @@
+const buttonCompanies = document.getElementById('btn-companies');
+const buttonPlayers = document.getElementById('btn-players');
+
 const buttonEngEl = document.getElementById('btn-eng');
 const buttonCyrEl = document.getElementById('btn-cyr');
 const buttonLatEl = document.getElementById('btn-lat');
+
+buttonCompanies.addEventListener('click', function () {
+  buttonCompanies.classList.add('btn-active');
+  buttonPlayers.classList.remove('btn-active');
+});
+buttonPlayers.addEventListener('click', function () {
+  buttonPlayers.classList.add('btn-active');
+  buttonCompanies.classList.remove('btn-active');
+});
 
 buttonLatEl.classList.add('btn-active');
 
