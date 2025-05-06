@@ -14,6 +14,8 @@ body {
 :root {
   --dark-color: #161b32;
   --light-color: whitesmoke;
+  --light-blue: #9fd8f7;
+  --btn-width: 100px;
 }
 
 header {
@@ -21,8 +23,9 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
-  padding: 1em 3em;
+  width: 90%;
+  margin: auto;
+  padding: 1em 0;
 }
 
 nav {
@@ -38,21 +41,26 @@ nav {
   padding: 0.5em;
   margin-bottom: 2em;
 
+  background-color: var(--light-color);
+
   border: 0.25em solid var(--dark-color);
   border-radius: 500px;
 
-  width: 90%;
-  max-width: 420px;
+  width: 80%;
+
+  z-index: 1;
 }
 
 .logo {
   width: 80px;
   max-width: 100%;
   height: auto;
+
+  margin: 0 0.5em;
 }
 
 .btn {
-  width: 100px;
+  width: var(--btn-width);
   padding: 0.75em;
 
   background-color: var(--dark-color);
@@ -68,7 +76,7 @@ nav {
 
 .container-lang-btn {
   display: flex;
-  width: 100px;
+  width: var(--btn-width);
 }
 
 .lang-cyr {
@@ -101,19 +109,77 @@ nav {
   text-transform: uppercase;
 }
 
-.btn:active .btn-text {
-}
-
 .btn-active {
   background-color: var(--light-color);
   color: var(--dark-color);
   border: 0.25em solid var(--dark-color);
 }
 
+main {
+  position: relative;
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 4em auto;
+  padding: 1em;
+
+  border: 0.25em solid var(--dark-color);
+  background-color: var(--light-blue);
+}
+h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  border-radius: 0.125em;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  text-align: center;
+
+  padding: 0.25em;
+}
+
+h2 {
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  font-size: 2rem;
+  border: 0.125em solid var(--dark-color);
+  border-radius: 0.25em;
+
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  text-align: center;
+
+  padding: 0.5em;
+
+  transform: rotate(-2deg);
+}
+
+p {
+  width: 90%;
+  margin-top: 3em;
+  font-size: 1.75em;
+  text-align: center;
+}
+
 /* Tablets and small laptops */
 @media (min-width: 768px) {
   body {
-    font-size: 1rem;
+    font-size: 1.25rem;
+  }
+  h1 {
+    width: 60%;
+  }
+  p {
+    width: 90%;
+    margin-top: 3em;
+    font-size: 1.75em;
+    text-align: center;
   }
   nav {
     position: static;
@@ -121,6 +187,14 @@ nav {
     left: auto;
     bottom: auto;
     margin: 0 3em;
+
+    width: fit-content;
+  }
+  :root {
+    --btn-width: 160px;
+  }
+  .btn {
+    font-size: 1rem;
   }
 }
 
@@ -129,11 +203,28 @@ nav {
   body {
     font-size: 1.25rem;
   }
+  h1 {
+    width: 60%;
+  }
+  p {
+    width: 90%;
+    margin-top: 3em;
+    font-size: 1.75em;
+    text-align: center;
+  }
   nav {
     position: static;
     transform: none;
     left: auto;
     bottom: auto;
     margin: 0 3em;
+
+    width: fit-content;
+  }
+  :root {
+    --btn-width: 160px;
+  }
+  .btn {
+    font-size: 1rem;
   }
 }
