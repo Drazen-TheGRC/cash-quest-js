@@ -5,6 +5,7 @@
 }
 
 /* Default: mobile-first (phones) */
+html,
 body {
   font-size: 1rem;
   background-color: var(--light-color);
@@ -70,7 +71,7 @@ nav {
   width: 100px;
 }
 
-.lang-sr {
+.lang-cyr {
   width: 50%;
   margin: 0;
 
@@ -80,7 +81,7 @@ nav {
   border-bottom-right-radius: 0;
 }
 
-.lang-bih {
+.lang-lat {
   width: 50%;
   margin: 0;
 
@@ -101,13 +102,18 @@ nav {
 }
 
 .btn:active .btn-text {
-  transform: scale(0.95);
+}
+
+.btn-active {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border: 0.25em solid var(--dark-color);
 }
 
 /* Tablets and small laptops */
 @media (min-width: 768px) {
   body {
-    /* font-size: 1.2rem; */
+    font-size: 1rem;
   }
   nav {
     position: static;
@@ -121,7 +127,7 @@ nav {
 /* Desktops */
 @media (min-width: 1024px) {
   body {
-    /* font-size: 1.25rem; */
+    font-size: 1.25rem;
   }
   nav {
     position: static;
