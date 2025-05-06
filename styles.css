@@ -4,11 +4,11 @@
   padding: 0;
 }
 
-/* Default: mobile-first (phones) */
-html,
-body {
-  font-size: 1rem;
-  background-color: var(--light-color);
+.unselectable {
+  user-select: none; /* Standard */
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
 }
 
 :root {
@@ -16,6 +16,13 @@ body {
   --light-color: whitesmoke;
   --light-blue: #9fd8f7;
   --btn-width: 100px;
+}
+
+/* Default: mobile-first (phones) */
+html,
+body {
+  font-size: 1rem;
+  background-color: var(--light-color);
 }
 
 header {
@@ -35,10 +42,10 @@ nav {
   transform: translateX(-50%);
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
-  padding: 0.5em 1em;
+  padding: 1em;
   margin-bottom: 2em;
 
   background-color: var(--light-color);
@@ -52,10 +59,7 @@ nav {
 }
 
 .logo {
-  width: 80px;
-  max-width: 100%;
-  height: auto;
-
+  width: 15%;
   margin: 0 0.5em;
 }
 
@@ -129,23 +133,22 @@ main {
   border: 0.25em solid var(--dark-color);
   background-color: var(--light-blue);
 }
-h1 {
+.heading-primary {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
+  font-size: 2rem;
   border-radius: 0.125em;
   background-color: var(--dark-color);
   color: var(--light-color);
   text-align: center;
 
-  padding: 0.25em;
+  padding: 0.5em;
 }
 
-h2 {
-  margin-top: 2em;
-  margin-bottom: 2em;
+.heading-secondary {
+  margin-top: 3em;
 
   font-size: 2rem;
   border: 0.125em solid var(--dark-color);
@@ -155,23 +158,16 @@ h2 {
   color: var(--dark-color);
   text-align: center;
 
-  padding: 0.5em;
+  padding: 0.75em;
 
   transform: rotate(-2deg);
 }
 
 p {
   width: 90%;
-  margin-top: 3em;
+  margin-top: 2em;
   font-size: 1.75em;
   text-align: center;
-}
-
-.unselectable {
-  user-select: none; /* Standard */
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
 }
 
 .card {
@@ -194,8 +190,8 @@ p {
   height: 460px;
 
   background-color: #83cae4;
-  border: 16px solid #83cae4;
-  border-radius: 16px;
+  border: 0.75em solid #83cae4;
+  border-radius: 1em;
 
   box-shadow: -2px -2px 1px #a1d8f2, 1px 1px 1px #6698b8; /* Shadow effect */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -224,10 +220,10 @@ p {
   align-items: center;
   justify-content: center;
 
-  padding: 16px;
+  padding: 1em;
 
   background-color: #161b32;
-  border-radius: 8px;
+  border-radius: 0.5em;
 
   /* text-transform: uppercase; */
   font-weight: bold;
@@ -244,15 +240,11 @@ p {
   z-index: 1;
 }
 
-.logo-card {
-  width: 50%;
-}
-
 .header-card {
   position: absolute;
-  top: -1px;
+  top: -0.25em;
   margin: 0 auto;
-  padding: 8px 24px;
+  padding: 0.5em 2em;
   padding-top: 0;
   display: block;
   background-color: #83cae4;
@@ -261,17 +253,22 @@ p {
   text-transform: uppercase;
   color: #161b32;
 
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }
 
 /* Tablets and small laptops */
 @media (min-width: 768px) {
+  :root {
+    --btn-width: 160px;
+  }
   body {
     font-size: 1.25rem;
   }
-  h1 {
+
+  .heading-primary {
     width: 60%;
+    font-size: 4rem;
   }
   p {
     width: 90%;
@@ -285,12 +282,15 @@ p {
     left: auto;
     bottom: auto;
     margin: 0 3em;
+    padding: 0.5em 1em;
 
     width: fit-content;
   }
-  :root {
-    --btn-width: 160px;
+
+  main {
+    margin-top: 5em;
   }
+
   .btn {
     font-size: 1rem;
   }
@@ -298,31 +298,4 @@ p {
 
 /* Desktops */
 @media (min-width: 1024px) {
-  body {
-    font-size: 1.25rem;
-  }
-  h1 {
-    width: 60%;
-  }
-  p {
-    width: 90%;
-    margin-top: 3em;
-    font-size: 1.75em;
-    text-align: center;
-  }
-  nav {
-    position: static;
-    transform: none;
-    left: auto;
-    bottom: auto;
-    margin: 0 3em;
-
-    width: fit-content;
-  }
-  :root {
-    --btn-width: 160px;
-  }
-  .btn {
-    font-size: 1rem;
-  }
 }
